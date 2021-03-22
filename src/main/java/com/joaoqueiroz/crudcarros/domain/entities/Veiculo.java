@@ -3,13 +3,16 @@ package com.joaoqueiroz.crudcarros.domain.entities;
 import com.joaoqueiroz.crudcarros.domain.enums.TipoVeiculo;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "TB_VEICULO")
-public class Veiculo {
+public class Veiculo implements Serializable {
+    private final long serialVersionUID = 1L;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
