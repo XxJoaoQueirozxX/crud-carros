@@ -28,12 +28,6 @@ public class VeiculoResource {
         return ResponseEntity.ok(veiculos);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Veiculo> findById(@PathVariable Long id){
-        Veiculo v = service.getById(id);
-        return ResponseEntity.ok(v);
-    }
-
     @PostMapping
     public ResponseEntity<Veiculo> insert(@RequestBody Veiculo veiculo){
         veiculo.setId(null);
@@ -42,5 +36,19 @@ public class VeiculoResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/{id}").buildAndExpand(veiculo.getId()).toUri();
         return ResponseEntity.created(uri).body(veiculo);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Veiculo> findById(@PathVariable Long id){
+        Veiculo v = service.getById(id);
+        return ResponseEntity.ok(v);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id){
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 
 }
