@@ -51,4 +51,9 @@ public class VeiculoResource {
     }
 
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Veiculo veiculo){
+        service.update(id, veiculo);
+        return ResponseEntity.noContent().build();
+    }
 }
