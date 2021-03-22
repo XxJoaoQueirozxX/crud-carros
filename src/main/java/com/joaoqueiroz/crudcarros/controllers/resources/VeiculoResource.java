@@ -7,7 +7,9 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -32,6 +34,13 @@ public class VeiculoResource {
         return ResponseEntity.ok(v);
     }
 
-
+    @PostMapping
+    public ResponseEntity<Veiculo> insert(@RequestBody Veiculo veiculo){
+        veiculo.setId(null);
+        veiculo.setDataCadastro(LocalDateTime.now());
+        veiculo = service.insert(veiculo);
+        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/{id}").buildAndExpand(veiculo.getId()).toUri();
+        return ResponseEntity.created(uri).body(veiculo);
+    }
 
 }
