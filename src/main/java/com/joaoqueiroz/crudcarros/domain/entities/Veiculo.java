@@ -3,6 +3,7 @@ package com.joaoqueiroz.crudcarros.domain.entities;
 import com.joaoqueiroz.crudcarros.domain.enums.TipoVeiculo;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -17,19 +18,22 @@ public class Veiculo {
     private String marca;
     private String cor;
     private Integer ano;
+    @Enumerated(EnumType.STRING)
     private TipoVeiculo tipo;
     private LocalDateTime dataCadastro;
+    private BigDecimal preco;
 
     public Veiculo() {
     }
 
-    public Veiculo(Long id, String modelo, String marca, String cor, Integer ano, TipoVeiculo tipo, LocalDateTime dataCadastro) {
+    public Veiculo(Long id, String modelo, String marca, String cor, Integer ano, TipoVeiculo tipo, BigDecimal preco, LocalDateTime dataCadastro) {
         this.id = id;
         this.modelo = modelo;
         this.marca = marca;
         this.cor = cor;
         this.ano = ano;
         this.tipo = tipo;
+        this.preco = preco;
         this.dataCadastro = dataCadastro;
     }
 
@@ -87,5 +91,13 @@ public class Veiculo {
 
     public void setDataCadastro(LocalDateTime dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
     }
 }

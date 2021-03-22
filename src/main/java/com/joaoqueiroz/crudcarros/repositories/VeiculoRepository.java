@@ -1,4 +1,4 @@
-package com.joaoqueiroz.crudcarros.repository;
+package com.joaoqueiroz.crudcarros.repositories;
 
 import com.joaoqueiroz.crudcarros.domain.entities.Veiculo;
 import org.springframework.data.jpa.repository.JpaRepository;
