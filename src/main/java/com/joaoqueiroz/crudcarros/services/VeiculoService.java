@@ -50,5 +50,7 @@ public class VeiculoService {
         entity.setTipo(dados.getTipo());
     }
 
-
+    public boolean hasVeiculoById(long id){
+        return repository.existsById(id);
+    }
 }

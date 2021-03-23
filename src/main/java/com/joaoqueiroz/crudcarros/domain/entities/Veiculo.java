@@ -32,6 +32,15 @@ public class Veiculo implements Serializable {
     public Veiculo() {
     }
 
+    public Veiculo(String modelo, String marca, String cor, Integer ano, TipoVeiculo tipo, BigDecimal preco) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.cor = cor;
+        this.ano = ano;
+        this.tipo = tipo;
+        this.preco = preco;
+    }
+
     public Veiculo(Long id, String modelo, String marca, String cor, Integer ano, TipoVeiculo tipo, BigDecimal preco, LocalDateTime dataCadastro) {
         this.id = id;
         this.modelo = modelo;
@@ -105,5 +114,20 @@ public class Veiculo implements Serializable {
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "serialVersionUID=" + serialVersionUID +
+                ", id=" + id +
+                ", modelo='" + modelo + '\'' +
+                ", marca='" + marca + '\'' +
+                ", cor='" + cor + '\'' +
+                ", ano=" + ano +
+                ", tipo=" + tipo +
+                ", dataCadastro=" + dataCadastro +
+                ", preco=" + preco +
+                '}';
     }
 }
