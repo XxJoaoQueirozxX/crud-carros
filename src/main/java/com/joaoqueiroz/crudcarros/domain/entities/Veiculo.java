@@ -1,5 +1,6 @@
 package com.joaoqueiroz.crudcarros.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.joaoqueiroz.crudcarros.domain.enums.TipoVeiculo;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Veiculo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
     private String modelo;
     private String marca;
@@ -23,6 +25,7 @@ public class Veiculo implements Serializable {
     private Integer ano;
     @Enumerated(EnumType.STRING)
     private TipoVeiculo tipo;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private LocalDateTime dataCadastro;
     private BigDecimal preco;
 
