@@ -73,4 +73,4 @@ Para visualizar os dados salvos no banco de dados em memória (H2), acesse:
 ```
 
 ---
-Desenvolvido por [João Queiroz](https://github.com/joaoqueiroz)
+Desenvolvido por [João Queiroz](https://github.com/XxJoaoQueirozxX)
